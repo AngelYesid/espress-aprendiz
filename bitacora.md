@@ -57,7 +57,15 @@ aparece con comillas o sin comillas?
 - En la versión corregida, borra la palabra return que está antes de res.status(404) y pide
 /actividades/99. ¿Qué recibe el cliente? ¿Qué aparece en la terminal? Después vuelve a poner el
 return.
--Recibe igual un error la terminal imprime normal lo del next.
+- Recibe igual un error la terminal imprime normal lo del next.
+
+# P8
+- Predice el resultado de estas tres peticiones: ?tipo=agua, ?tipo=AGUA y ?tipo=fuego. Para la
+última: ¿debería responder 404 o 200 con una lista vacía? Defiende tu respuesta.
+
+- La primera arroja los obetos con el tipo 'agua', la segunda y la tercera arrojn un array vacío 
+porque AGUA no es un resultado existente, sino solo "agua", y como tampoco existe fuego, por eso ocurre. Arroja 200 porque
+aun no tenemos el código que detecte lo que no existe para que arroje 400.
 
 
 
