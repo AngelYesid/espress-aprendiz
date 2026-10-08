@@ -12,25 +12,25 @@ console.log('Escuchando en http://localhost:3000');
 
 */
 
-import express from "express"
+import express from "express";
 
-
-const app=   express()
+const app = express();
 app.use((req, res, next) => {
-console.log(`${new Date().toLocaleTimeString()} ${req.method} ${req.url}`);
-next();
+  console.log(`${new Date().toLocaleTimeString()} ${req.method} ${req.url}`);
+  next();
 });
-
-// Datos de ejemplo en memoria (todavía no hay base de datos)
+//middleware, imprime la fecha y lo que pidió el usuario y la URL. el next permite que continue con la ejecución del código, si no se pone next() se queda en el middleware y no ejecuta lo demás.
 const actividades = [
-{ id: 1, nombre: 'Rafting en el río Fonce', tipo: 'agua', precio: 60000 },
-{ id: 2, nombre: 'Parapente en el cañón', tipo: 'aire', precio: 180000 },
-{ id: 3, nombre: 'Caminata Camino Real a Barichara', tipo: 'tierra', precio: 0 },
-{ id: 4, nombre: 'Torrentismo en cascada', tipo: 'agua', precio: 70000 },
+  { id: 1, nombre: "Rafting en el río Fonce", tipo: "agua", precio: 60000 },
+  { id: 2, nombre: "Parapente en el cañón", tipo: "aire", precio: 180000 },
+  {
+    id: 3,
+    nombre: "Caminata Camino Real a Barichara",
+    tipo: "tierra",
+    precio: 0,
+  },
+  { id: 4, nombre: "Torrentismo en cascada", tipo: "agua", precio: 70000 },
 ];
-app.get('/actividades', (req, res) => {
-res.json(actividades);
-});
 
 app.get('/actividades/:id', (req, res) => {
 const id = Number(req.params.id);
@@ -42,24 +42,35 @@ return res.status(404).json({ mensaje: `No existe la actividad con id ${req.para
 res.json(actividad);
 });
 
-app.get("/",(req,res)=>{
-    res.send("Hola Mundo")
-})
+app.get('/actividades', (req, res) => {
+console.log('query:', req.query);
+const { tipo } = req.query;
+if (!tipo) {
+return res.json(actividades);
+}
+const filtradas = actividades.filter((a) => a.tipo == tipo.toLowerCase());
+res.json(filtradas);
+});
 
-app.get("/actividad",(req,res)=>{
-    res.json({mensaje:"holis"})
-})
+app.get("/actividades", (req, res) => {
+  res.json(actividades);
+});
 
-app.post("/actividad",(req,res)=>{
-    res.send("Esto es un post llamado actividad")
-})
+app.get("/", (req, res) => {
+  res.send("Hola Mundo");
+});
 
+app.get("/actividad", (req, res) => {
+  res.json({ mensaje: "holis" });
+});
 
-app.listen(3001,()=>{
-    console.log('Servidor escuchando en el puerto http://localhost:3001');
-})
+app.post("/actividad", (req, res) => {
+  res.send("Esto es un post llamado actividad");
+});
 
-
+app.listen(3001, () => {
+  console.log("Servidor escuchando en el puerto http://localhost:3001");
+});
 
 
 /*
