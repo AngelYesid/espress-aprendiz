@@ -34,3 +34,8 @@ Red/Network) y mira el código de estado.
 # REFLEXION 
 - Vuelve a tus tres cosas tediosas del Momento 1. ¿Cuáles resolvió Express? ¿Alguna sigue igual?
 - Ya todo es mejor, porque se hacerlo bien.
+
+# P5
+- Comenta la línea next(); y pide / en el navegador. ¿Qué ves en el navegador? ¿Qué ves en la
+terminal? Cuando termines, vuelve a activar next();.
+- Se ve que funciona, aparece el json.
