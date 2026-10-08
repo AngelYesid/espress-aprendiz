@@ -16,8 +16,6 @@ import express from "express"
 
 
 const app=   express()
-
-// Va ANTES de las rutas
 app.use((req, res, next) => {
 console.log(`${new Date().toLocaleTimeString()} ${req.method} ${req.url}`);
 next();
@@ -47,8 +45,8 @@ app.post("/actividad",(req,res)=>{
 })
 
 
-app.listen(3000,()=>{
-    console.log('Servidor escuchando en el puerto http://localhost:3000');
+app.listen(3001,()=>{
+    console.log('Servidor escuchando en el puerto http://localhost:3001');
 })
 
 
