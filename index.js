@@ -32,6 +32,16 @@ app.get('/actividades', (req, res) => {
 res.json(actividades);
 });
 
+app.get('/actividades/:id', (req, res) => {
+const id = Number(req.params.id);
+const actividad = actividades.find((a) => a.id == id);
+if (!actividad) {
+return res.status(404).json({ mensaje: `No existe la actividad con id ${req.params.id}`
+});
+}
+res.json(actividad);
+});
+
 app.get("/",(req,res)=>{
     res.send("Hola Mundo")
 })
