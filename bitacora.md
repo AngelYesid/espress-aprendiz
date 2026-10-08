@@ -24,3 +24,13 @@ comparar en el siguiente momento.
 - Iniciar el npm
 - Iniciar el git (todo)
 - Conectar con la cuenta de github
+
+# P4
+- No has programado ninguna ruta para /no-existe. ¿Qué crees que responde Express si la pides?
+Ábrela en el navegador con las herramientas de desarrollador abiertas (F12 → pestaña
+Red/Network) y mira el código de estado.
+- Creemos que saldra error 404, porque todavia no existe una respuesta para esa ruta especifica.
+
+# REFLEXION 
+- Vuelve a tus tres cosas tediosas del Momento 1. ¿Cuáles resolvió Express? ¿Alguna sigue igual?
+- Ya todo es mejor, porque se hacerlo bien.
