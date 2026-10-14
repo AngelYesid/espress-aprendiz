@@ -67,6 +67,28 @@ return.
 porque AGUA no es un resultado existente, sino solo "agua", y como tampoco existe fuego, por eso ocurre. Arroja 200 porque
 aun no tenemos el código que detecte lo que no existe para que arroje 400.
 
+# P9
+- ¿Qué código de estado y qué body vas a recibir? ¿Qué va a imprimir console.log('Body
+recibido:', req.body) en la terminal?
+- 201 y un id que crece de a 2 de forma consecutiva. Undefined
+
+## P10
+
+- Haz cualquier cambio en app.js y guarda (con --watch el servidor se reinicia solo). Vuelve a pedir
+GET /actividades. ¿Sigue estando la actividad que creaste?
+- No, ya no vuelve a aparecer.
+
+
+# M6
+
+## P11
+- Mueve este bloque al inicio, justo después de express.json(), y pide GET /actividades. ¿Qué
+pasa? ¿Por qué? Después regrésalo al final.
+- Arroja error 404. Porque, al ponerla al principio y al enviar el GET, esta inicia su proceso de una vez, y lo que hay debajo de ella jamas va a ejecutarse.
+
+# CONCLUSIÓN
+- Express decide qué código ejecuta evaluando las rutas y middlewares en estricto orden de aparición, ejecutando el que coincida con la petición o pasando al siguiente mediante la funcion next().
+
 
 
 
